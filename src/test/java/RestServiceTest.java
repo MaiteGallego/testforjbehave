@@ -8,20 +8,24 @@ import org.junit.Assert;
  */
 public class RestServiceTest {
     private String urlMessage;
-    private String returnedId;
+    private int returnedId;
+    private ContactHelper helper;
 
     @Given("a rest service $URL")
     public void given(String url){
        urlMessage="http://jsonplaceholder.typicode.com/posts/1";
+        helper = new ContactHelper("","","",urlMessage);
     }
 
     @When("I send a $message")
     public void when(String message){
-        returnedId="";
+        int id = 10;
+        Contact contact = helper.GetContact(id);
+        returnedId = contact.id;
     }
 
     @Then("The service returns an $identifier")
     public void then(String identifier){
-        Assert.assertEquals(identifier,returnedId);
+        Assert.assertEquals(returnedId,10);
     }
 }

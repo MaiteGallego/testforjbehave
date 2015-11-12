@@ -1,7 +1,5 @@
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
-
+import com.thoughtworks.paranamer.NullParanamer;
+import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.embedder.EmbedderControls;
 import org.jbehave.core.embedder.StoryControls;
@@ -20,9 +18,9 @@ import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.*;
 import org.junit.runner.RunWith;
 
-import com.thoughtworks.paranamer.NullParanamer;
-
-import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
 
 @RunWith(JUnitReportingRunner.class)
 public class SimpleJbehave extends JUnitStories {
@@ -86,6 +84,6 @@ public class SimpleJbehave extends JUnitStories {
 
     @Override
     protected List<String> storyPaths() {
-        return Arrays.asList("RestServiceTest.story");
+        return Arrays.asList("TestRestService.story");
     }
 }
