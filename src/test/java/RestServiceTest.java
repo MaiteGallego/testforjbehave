@@ -13,19 +13,20 @@ public class RestServiceTest {
 
     @Given("a rest service $URL")
     public void given(String url){
-       urlMessage="http://jsonplaceholder.typicode.com/posts/1";
-        helper = new ContactHelper("","","",urlMessage);
+       urlMessage="http://jsonplaceholder.typicode.com/posts/";
+        helper = new ContactHelper("site","user","password",urlMessage);
     }
 
     @When("I send a $message")
-    public void when(String message){
-        int id = 10;
+    public int when(){
+        int id = 11;
         Contact contact = helper.GetContact(id);
-        returnedId = contact.id;
+        return contact.id;
     }
 
     @Then("The service returns an $identifier")
     public void then(String identifier){
-        Assert.assertEquals(returnedId,10);
+
+        Assert.assertEquals(when(),11);
     }
 }
